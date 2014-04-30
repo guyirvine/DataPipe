@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+#
+#
+# The application 'datapipe' is installed as part of a gem, and
+# this file is here to facilitate running it.
+#
+$:.unshift "../../lib"
+
+
+require 'rubygems'
+require 'DataPipe'
+
+def run_datapipe()
+        DataPipe::Host.new().run()
+end
+
+run_datapipe
+

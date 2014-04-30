@@ -1,0 +1,1 @@
+gem build datapipe.gemspec && sudo gem install ./datapipe-0.0.1.gem
