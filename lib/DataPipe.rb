@@ -1,4 +1,6 @@
-#!/usr/bin/env ruby
+#Don't buffer stdout
+$stdout.sync = true
+
 module DataPipe
     
     require 'helper_functions'
