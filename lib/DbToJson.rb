@@ -1,16 +1,16 @@
-require 'StreamBuilder'
+require 'FluidDb'
+require "json"
 
 
-def DbToDir( db_env_name, sql, splitField, path, prefix )
-#    Dir.mkdir( path ) unless Dir.exists?( path )
+def DbToJson( db_env_name, sql, splitField, path, prefix )
+    Dir.mkdir( path ) unless Dir.exists?( path )
+
 
     db = DataPipe.getFluidDb( db_env_name )
 
     hash = Hash.new
     rst = db.queryForResultset( sql, [] )
     columns = rst[0].keys if rst.length > 0
-
-
     rst.each do |r|
         hash[r[splitField]] = Array.new unless hash.has_key?(r[splitField])
 
@@ -21,12 +21,9 @@ def DbToDir( db_env_name, sql, splitField, path, prefix )
     Dir.glob( "#{basePath}*" ).each { |f| File.delete(f) }
 
     hash.each do |k,v|
-        s = StreamBuilder.new
-                .f( columns )
-	v.each { |r| s.add *r.values }
-        File.write( "#{basePath}#{k}.js", s.serialize )
+        File.write( "#{basePath}#{k}.js", v.to_json )
     end
-
+    
     return hash
 end
 

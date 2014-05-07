@@ -1,5 +1,8 @@
 module DataPipe
 
+require 'FluidDb'
+
+
 def DataPipe.log( string, verbose=false )
         type = verbose ? "VERB" : "INFO"
         if !ENV["VERBOSE"].nil? || !verbose then

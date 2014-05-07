@@ -1,0 +1,7 @@
+FarmwiseDb=pgsql://girvine:coffee11@localhost/farmwise \
+Db=pgsql://girvine:coffee11@localhost/farmwise \
+Dw=pgsql://girvine:coffee11@localhost/farmwise \
+Bcs_CRON="* * * * *" \
+datapipe
+#../datapipe_examples
+

@@ -10,9 +10,24 @@ $:.unshift "/guyirvine.com/Stream/DataPipe/lib"
 require 'rubygems'
 require 'DataPipe'
 
-def run_datapipe()
-        DataPipe::Host.new().run()
+@hash = Hash.new
+
+datapipe_thread = Thread.new do
+begin
+	h = DataPipe::Host.new
+	h.hash = @hash
+	h.run()
+rescue Exception=>e
+	puts e.message
+	puts e.backtrace
+end
 end
 
-run_datapipe
+
+s = DataPipe::WWW.new
+s.hash = @hash
+Rack::Handler::Thin.run s, :Port => 9292
+
+
+Thread.kill( datapipe_thread )
 

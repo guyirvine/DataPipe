@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'datapipe'
-  s.version     = '0.0.2'
-  s.date        = '2014-05-01'
+  s.version     = '0.0.3'
+  s.date        = '2014-05-03'
   s.summary     = "DataPipe"
   s.description = "Helping to move data around your system"
   s.authors     = ["Guy Irvine"]

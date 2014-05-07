@@ -1,0 +1,2 @@
+gs: env Db=$FarmwiseDb Dw=$FarmwiseDb Bcs_CRON="* * * * *" ../datapipe_examples
+

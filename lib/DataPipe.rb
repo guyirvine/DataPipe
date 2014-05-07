@@ -6,6 +6,7 @@ module DataPipe
     require 'helper_functions'
     require 'Jobs'
     require 'Host'
+    require 'WWW'
     
     
     class DataPipelineError<StandardError
